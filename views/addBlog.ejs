@@ -7,27 +7,24 @@
 <body>
     <%- include('./partials/scripts') %>
     <%- include('./partials/nav') %>
-    <div class="container mt-4">
-        <form action="/blog" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="coverImage" class="form-label">Cover Image</label>
-                <input type="file" class="form-control" id="coverImage" aria-describedby="coverImage" name="coverImage">
-            </div>
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" aria-describedby="title" name="title">
-            </div>
-            <div class="mb-3">
-                <label for="body">Body</label>
-                <textarea class="form-control mt-2" name="body" id="body"></textarea>
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-primary">
-                    Submit
-                </button>
-            </div>
-        </form>
-
+    <div class="container mt-5">
+  <h2>Add New Blog</h2>
+  <form action="/blog" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label class="form-label">Cover Image</label>
+      <input type="file" class="form-control" name="coverImage" required>
     </div>
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Content</label>
+      <textarea class="form-control" name="body" rows="6" required></textarea>
+    </div>
+    <button class="btn btn-success">Submit Blog</button>
+  </form>
+</div>
+
 </body>
-</html>
+</html> 

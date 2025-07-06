@@ -3,6 +3,7 @@ const path=require('path');
 const userRoute=require('./routes/user');
 const blogRoute=require('./routes/blog');
 const Blog=require('./models/blog');
+require('dotenv').config();
 
 const mongoose=require('mongoose');
 const cookieParser=require('cookie-parser');
@@ -10,14 +11,13 @@ const checkForAuthenticationCookie = require('./middlewares/auth');
 
 
 const app=express();
-const PORT=3000;
-
+const PORT=process.env.PORT;
 app.use(express.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
 app.use(express.static(path.resolve('./public')));
 
-mongoose.connect('mongodb+srv://jackalxa1:eY7bBoAHsB1qDHM9@cluster0.nbhpxmz.mongodb.net/')
+mongoose.connect(process.env.MONGO_URL)
 .then(e=>console.log("MongoDB Connected"));
 
 app.set('view engine','ejs');
