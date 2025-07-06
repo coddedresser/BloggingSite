@@ -32,4 +32,6 @@ app.get('/',async(req,res)=>{
 app.use('/blog',blogRoute);
 app.use('/user',userRoute);
 
-app.listen(PORT,()=>console.log(`Server Started at PORT:${PORT}`));
+// app.listen(PORT,()=>console.log(`Server Started at PORT:${PORT}`));
+
+module.exports=app;
